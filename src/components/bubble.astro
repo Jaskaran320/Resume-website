@@ -1,0 +1,14 @@
+---
+let { srce, name, link } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<a
+  href={link}
+  class="border font-poppins w-26 rounded-4xl flex justify-center items-center rounded-xl space-x-1 md:space-x-2 px-1 md:px-2 py-1 border-black border-opacity-40 bg-primary bg-opacity-5 hover:cursor hover:bg-opacity-10 hover:border-opacity-60"
+>
+  <Image src={srce} alt={name} class="w-6 h-6"/>
+  <div class="text-black hidden md:block md:text-base">
+    {name}
+  </div>
+</a>

@@ -1,0 +1,44 @@
+---
+const links = [
+  {
+    name: "home",
+    path: "/",
+  },
+  {
+    name: "resume-AI",
+    path: "/resume-ai",
+  },
+  {
+    name: "view-resume",
+    path: "https://drive.google.com/file/d/1em-yuNN01qEZJuTAuuSKTtm03MBlCNnh/view?usp=sharing",
+  },
+];
+
+import '@fontsource/poppins';
+import '@fontsource-variable/outfit';
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(0);
+
+---
+
+<div class="flex justify-center items-center w-full py-4" >
+  <div class = "flex justify-between items-center w-full md:w-[60%] px-4 md:px-0">
+    <div class = "font-poppins text-sm md:text-2xl text-primary font-bold">
+      <a href = "/">Jaskaran Singh</a>
+    </div>
+    <div class = "navlinks font-poppins text-text">
+      <ul class="flex space-x-3 md:space-x-12 text-xs md:text-sm">
+        {
+          links.map((link) => (
+            <li>
+              <div class = ` text-text transition-all duration-50 ${currentPath == link.path? "font-semibold text-primary":"font-light hover:underline underline-offset-2 "}`>
+                <a href={link.path}>{link.name}</a>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div
+    class="flex flex-col items-start w-full md:w-[60%] space-y-4 font-poppins py-4 overflow-auto rounded-lg smooth-scroll mx-auto px-4 md:px-1 my-6 md:my-10"
+  >
+    <h1 class="text-xl md:text-4xl font-bold mb-4 tracking-wider">
+      Want to reach out?
+    </h1>
+    <div class="text-xs md:text-base text-text text-center font-medium">
+      Please leave your details and I'll reach out as soon as possible.
+    </div>
+    <div
+      class="flex flex-col w-full justify-start form text-sm md:text-base space-y-3"
+    >
+      <input
+        type="text"
+        placeholder="Name"
+        class="w-[60%] md:w-[20%] p-2 border bg-transparent border-primary border-opacity-70 rounded-lg"
+        id="name"
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        class="w-[60%] md:w-[20%] p-2 border bg-transparent border-primary border-opacity-70 rounded-lg"
+        id="email"
+      />
+      <textarea
+        placeholder="Message"
+        class="w-[90%] md:w-[40%] h-40 p-2 border bg-transparent border-primary border-opacity-70 rounded-lg"
+        id="message"></textarea>
+      <button
+        class="bg-primary w-fit bg-opacity-20 md:bg-opacity-10 text-slate-100 md:text-text p-2 rounded-xl font-poppins hover:bg-opacity-30 transition-all duration-200"
+        type="button"> Send </button>
+    </div>
+  </div>
+  <script>
+    import ContactFunc from "../components/Functions/contact";
+    let inputNode = document.getElementById("name") as HTMLInputElement;
+    let emailNode = document.getElementById("email") as HTMLInputElement;
+    let messageNode = document.getElementById("message") as HTMLTextAreaElement;
+    let buttonRef = document.querySelector("button");
+
+    buttonRef.addEventListener("click", () => {
+      ContactFunc(
+        inputNode.value,
+        emailNode.value,
+        messageNode.value
+      );
+      inputNode.value = "";
+      emailNode.value = "";
+      messageNode.value = "";
+    });
+
+
+  </script>
+</Layout>

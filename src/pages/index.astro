@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Tooltip from "../components/bubble.astro";
+import { Projects } from "../components/Projects.jsx";
+const techstack = [
+  {
+    name: "PyTorch",
+    link: "https://pytorch.org",
+  },
+  {
+    name: "TensorFlow",
+    link: "https://www.tensorflow.org",
+  },
+  {
+    name: "HuggingFace",
+    link: "https://huggingface.co",
+  },
+  {
+    name: "Docker",
+    link: "https://www.docker.com/",
+  },
+  {
+    name: "Kubernetes",
+    link: "https://kubernetes.io/",
+  },
+  {
+    name: "Jenkins",
+    link: "https://www.jenkins.io/",
+  },
+  {
+    name: "Python",
+    link: "https://www.python.org",
+  },
+  {
+    name: "MySQL",
+    link: "https://www.mysql.com",
+  },
+  {
+    name: "AWS",
+    link: "https://aws.amazon.com",
+  },
+];
+import pytorchlogo from "../images/pytorch-icon.svg";
+import tensorflowlogo from "../images/tensorflow-icon.svg";
+import hflogo from "../images/hf-logo.svg";
+import dockerlogo from "../images/docker-logo.svg";
+import k8slogo from "../images/k8s-logo.svg";
+import jenkinslogo from "../images/jenkins-logo.svg";
+import mysqllogo from "../images/mysql-logo.svg";
+import pythonlogo from "../images/python-logo.svg";
+import awslogo from "../images/aws-logo.svg";
+import whatsapplogo from "../images/whatsapp-logo.svg";
+import linkedinlogo from "../images/linkedin-logo.svg";
+import githublogo from "../images/github-logo.svg";
+import maillogo from "../images/mail-logo.svg";
+
+let socials_list = [
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/jaskaran-singh7/",
+    logo: linkedinlogo,
+  },
+  {
+    name: "GitHub",
+    link: "https://github.com/jaskaran320",
+    logo: githublogo,
+  },
+  {
+    name: "Mail",
+    link: "mailto:jaskaransingh.official7@gmail.com",
+    logo: maillogo,
+  },
+  {
+    name: "WhatsApp",
+    link: "https://wa.me/8470918660",
+    logo: whatsapplogo,
+  }
+]
+
+let images = [
+  pytorchlogo,
+  tensorflowlogo,
+  hflogo,
+  dockerlogo,
+  k8slogo,
+  jenkinslogo,
+  pythonlogo,
+  mysqllogo,
+  awslogo,
+];
+---
+
+<Layout>
+  <div class="flex flex-col items-center w-full">
+    <div
+      class="text-left text-primary font-poppins space-y-5 md:space-y-6 tracking-wider w-full md:w-[60%] px-4 md:px-1 my-6 md:my-10"
+    >
+      <h1 class="text-xl md:text-4xl font-bold mb-4">Hi there 👋🏻</h1>
+      <p class="text-sm md:text-xl font-medium">
+        My name is <span class="font-semibold">Jaskaran Singh</span>
+        and I am a Computer Science & Applied Mathematics graduate from
+        <a href="https://iiitd.ac.in" class="text-amber-800 hover:underline">
+          IIIT-Delhi.
+        </a>
+      </p>
+      <p class="text-sm md:text-xl font-medium">
+        I am currently working as a Software Developer at Brane Enterprises.
+      </p>
+      <p class="text-sm md:text-xl font-poppins font-medium my-6">
+        My tech stack:
+      </p>
+      <div class="grid grid-rows-3 grid-cols-3 gap-x-4 gap-y-2 md:w-fit">
+        {
+          techstack.map((tech, ind) => (
+            <Tooltip srce={images[ind]} name={tech.name} link={tech.link} />
+          ))
+        }
+      </div>
+      <div class="text-sm md:text-xl space-y-2 md:space-y-6 my-6">
+        <div>Some projects I have worked on:</div>
+        <div><Projects client:only /></div>
+      </div>
+      <div class = "socials-section text-center md:text-left text-sm md:text-xl font-medium">
+        Please feel free to reach out:
+         
+        <div class = "flex space-x-4 my-4 items-end justify-center md:justify-start">
+          {
+            socials_list.map((social) => (
+              <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <img src={social.logo.src} class="w-6 h-6 md:h-7 md:w-7 opacity-80 hover:opacity-100" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
