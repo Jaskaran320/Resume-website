@@ -5,7 +5,6 @@ import {
   ChatPromptTemplate,
   MessagesPlaceholder,
 } from "@langchain/core/prompts";
-import  SpeedInsights  from "@vercel/speed-insights/astro"
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { useState, useEffect, useRef } from "react";
@@ -51,7 +50,7 @@ export default function Chat() {
 
   const model = new ChatGroq({
     model: "llama3-70b-8192",
-    apiKey: process.env.GROQ_API_KEY,
+    apiKey: `${process.env.GROQ_API_KEY}`,
   });
 
   const chain = RunnableSequence.from([
