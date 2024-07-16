@@ -268,7 +268,6 @@ export default function Chat() {
           excuse any mistakes 😀.
         </div>
       </div>
-      <SpeedInsights />
     </div>
   );
 }
