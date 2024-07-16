@@ -10,12 +10,6 @@ function Contact(name, email, text) {
     email: email,
     text: text,
   });
-
-  status.then(() => {
-    console.log("Data is successfully written to the database.");
-  }).catch((error) => {
-    console.log("Data could not be written to the database.", error);
-  });
 }
 
 export default Contact;

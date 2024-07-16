@@ -11,14 +11,17 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { resume_data } from "./resume-data.js";
 import arrow from "../images/arrow.svg";
+
 export default function Chat() {
   const [queryText, setQueryText] = useState("");
+  let [enablePrompt, setEnablePrompt] = useState(true);
   const chatContainerRef = useRef(null);
   const inputRef = useRef(null);
   const [chatHistory, setChatHistory] = useState([
     {
       type: "bot",
-      markdown: "Please ask questions about Jaskaran Singh's resume 😀",
+      markdown:
+        "Hi there! Please ask me any questions about Jaskaran Singh and I will try my best to help you out. 😊",
     },
   ]);
 
@@ -27,11 +30,17 @@ export default function Chat() {
 
     ${resume_data}
     
-    Return Markdown format with proper hyperlinks and formatting.
+    Return Markdown format with proper hyperlinks. Bold important information.
     DO NOT answer any questions or perform any task's not related to Jaskaran Singh's Resume. 
     If the user talks normally, you can converse normally as well.
     Be concise and do not overstate Jaskaran Singh's achievements or acomplishments. Try to be as helpful as possible but do not state any false information.
     If the answer is not in the context, say the word “Unknown".`;
+
+  const messageRecommendations = [
+    "Where is he working?",
+    "How do I contact him?",
+    "What is his tech stack?",
+  ];
 
   const prompt = ChatPromptTemplate.fromMessages([
     ["system", SystemPrompt],
@@ -55,6 +64,52 @@ export default function Chat() {
     new StringOutputParser(),
   ]);
 
+  const handlePrompt = async (queryText) => {
+    setEnablePrompt(false);
+    let newChatHistory = [
+      ...chatHistory,
+      { type: "user", markdown: queryText },
+    ];
+    setChatHistory(newChatHistory);
+
+    try {
+      const formattedChatHistory = newChatHistory
+        .slice(1)
+        .map((msg) =>
+          msg.type === "user"
+            ? new HumanMessage(msg.markdown)
+            : new AIMessage(msg.markdown)
+        );
+
+      const response = await chain.invoke({
+        input: queryText,
+        chat_history: formattedChatHistory,
+      });
+      let finalResponse = response;
+      if (response === "Unknown") {
+        finalResponse = "I'm sorry, I don't know the answer to that question.";
+      }
+
+      newChatHistory = [
+        ...newChatHistory,
+        { type: "bot", markdown: finalResponse },
+      ];
+      setChatHistory(newChatHistory);
+      setEnablePrompt(true);
+    } catch (error) {
+      newChatHistory = [
+        ...newChatHistory,
+        {
+          type: "bot",
+          markdown:
+            "I'm sorry, I encountered an error while processing your request.",
+        },
+      ];
+      setChatHistory(newChatHistory);
+      setEnablePrompt(true);
+    }
+  };
+
   const handleClick = async (event) => {
     if (!queryText.trim()) return;
 
@@ -66,8 +121,6 @@ export default function Chat() {
     setQueryText("");
 
     try {
-      console.log("Sending request with input:", queryText);
-
       const formattedChatHistory = newChatHistory
         .slice(1)
         .map((msg) =>
@@ -75,8 +128,6 @@ export default function Chat() {
             ? new HumanMessage(msg.markdown)
             : new AIMessage(msg.markdown)
         );
-
-      console.log("Formatted chat history:", formattedChatHistory);
 
       const response = await chain.invoke({
         input: queryText,
@@ -87,15 +138,12 @@ export default function Chat() {
         finalResponse = "I'm sorry, I don't know the answer to that question.";
       }
 
-      console.log("Received response:", finalResponse);
-
       newChatHistory = [
         ...newChatHistory,
         { type: "bot", markdown: finalResponse },
       ];
       setChatHistory(newChatHistory);
     } catch (error) {
-      console.log("Error processing request:", error);
       newChatHistory = [
         ...newChatHistory,
         {
@@ -143,15 +191,14 @@ export default function Chat() {
 
   return (
     <div className="chat-island flex flex-col items-center ">
-      <div className="chat space-y-4 flex flex-col justify-center items-center font-poppins text-base antialiased drop-shadow-xl my-6 md:my-10">
+      <div className="chat space-y-2 flex flex-col justify-center items-center font-poppins text-base antialiased drop-shadow-xl my-6 md:my-8">
         <div
           ref={chatContainerRef}
-          className="flex flex-col h-[60vh] w-[80vw] md:h-[63vh] md:w-[60vw] border-2 border-black border-opacity-20 px-2 py-4 overflow-auto rounded-lg smooth-scroll"
+          className="flex flex-col z-10 bg-orange-200/5 h-[60vh] w-[90vw] md:h-[63vh] md:w-[60vw] border border-black border-opacity-[0.3] px-2 py-4 overflow-auto rounded-lg smooth-scroll"
         >
           {chatHistory.map((textitem, index) =>
             textitem.type === "user" ? (
               <motion.div
-                key={index+textitem.type}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -161,7 +208,6 @@ export default function Chat() {
               </motion.div>
             ) : index === chatHistory.length - 1 ? (
               <motion.div
-                key={index+textitem.type}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -176,28 +222,45 @@ export default function Chat() {
             )
           )}
         </div>
-        <div className="flex flex-col md:flex-row text-xs md:text-base space-x-2 items-center justify-center w-full font-poppins tracking-wide space-y-4 md:space-y-0 text-center">
-          <input
-            ref={inputRef}
-            className="w-[80%] h-10 p-2 rounded-lg bg-transparent border-opacity-40 border border-black hover:cursor-pointer focus:outline-none"
-            placeholder="Enter Prompt Here..."
-            value={queryText}
-            onChange={(e) => {
-              setQueryText(e.target.value);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleClick();
-              }
-            }}
-          />
-          <button
-            className="bg-primary bg-opacity-20 md:bg-opacity-10 text-slate-100 md:text-text p-2 rounded-full hover:rotate-[-90deg] font-poppins hover:bg-opacity-30 hover:text-white transition-all duration-200"
-            type="button"
-            onClick={handleClick}
-          >
-            <img src={arrow.src} alt="arrow" className="h-6 w-6" />
-          </button>
+        <div className="flex flex-col text-xs md:text-sm space-x-2 items-center justify-center w-full font-poppins tracking-wide space-y-4 md:space-y-3 text-center">
+          <div className="message-rec flex justify-center items-center space-x-2 mt-2">
+            {messageRecommendations.map((message) => {
+              return (
+                <div
+                  className="bg-orange-200 text-xs text-center px-1 md:px-1 bg-opacity-40 content-center text-text rounded-2xl hover:cursor-pointer hover:bg-opacity-80 hover:text-black transition-all duration-200 h-16 w-[28%] md:h-12 md:w-[33%]"
+                  onClick={() => {
+                    console.log(enablePrompt);
+                    if (enablePrompt) handlePrompt(message);
+                  }}
+                >
+                  {message}
+                </div>
+              );
+            })}
+          </div>
+          <div className="input w-[80%] h-10 px-2 rounded-2xl bg-transparent border-opacity-40 border border-black hover:cursor-pointer focus:outline-none flex">
+            <input
+              ref={inputRef}
+              className="w-full rounded-lg bg-transparent focus:outline-none"
+              placeholder="Enter Prompt Here..."
+              value={queryText}
+              onChange={(e) => {
+                setQueryText(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleClick();
+                }
+              }}
+            />
+            <button type="button" onClick={handleClick}>
+              <img
+                src={arrow.src}
+                alt="arrow"
+                className=" h-6 w-6 rounded-full hover:rotate-[-90deg] transition-all duration-200"
+              />
+            </button>
+          </div>
         </div>
         <div className="text-center text-xs md:text-sm text-primary opacity-75 w-3/4">
           NOTE: This chatbot is powered by Groq Cloud and LangChain. Please

@@ -61,10 +61,10 @@ Programming, Exception Handling, JUnit Testing, Multithreading, and Design Patte
 
 TECHNICAL SKILLS
 
-Expertise Area: Deep Learning, Natural Language Processing, Data Structures, Algorithms, Object-Oriented
+Expertise Area: Deep Learning, Natural Language Processing, Web Development, Data Structures, Algorithms, Object-Oriented
 Programming
-Programming Languages: Python, Java, C, C++, Javascript, SQL, HTML, YAML
-Technologies/Frameworks: Docker, Kubernetes, Pytorch, Hugging Face, Prometheus, Jenkins, Graylog, Maven,
+Programming Languages: Python, Java, Javascript, C, C++, SQL, HTML, YAML
+Technologies/Frameworks: Docker, Kubernetes, Pytorch, Hugging Face, LangChain, React, Prometheus, Jenkins, Graylog, Maven,
 Scikit-Learn, Git, MySQL, Linux
 
 PROJECTS
