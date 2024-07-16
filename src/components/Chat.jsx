@@ -50,7 +50,7 @@ export default function Chat() {
 
   const model = new ChatGroq({
     model: "llama3-70b-8192",
-    apiKey: import.meta.env.PUBLIC_GROQ_API_KEY,
+    apiKey: `${process.env.GROQ_API_KEY}`,
   });
 
   const chain = RunnableSequence.from([
