@@ -1,6 +1,6 @@
 export const resume_data = 
 `Jaskaran Singh
-+91-8470918660 ⋄ Delhi, India
+Delhi, India
 
 Jaskaran Singh's Email: jaskaransingh.official7@gmail.com 
 Jaskaran Singh's LinkedIn: https://www.linkedin.com/in/jaskaran-singh7 
@@ -113,5 +113,5 @@ From: Jan 2022 - Apr 2022
 
 POSITIONS OF RESPONSIBILITY / ACHIEVEMENTS
 • Organized tournaments for 65th Square Chess Club as Events Head with 200+ participants.
-• Achieved rank 1 in the National Aptitude Test conducted by Byju’s and won Rs 1,00,000.
+• Achieved rank 1 in the National Aptitude Test conducted by Byju's and won Rs 1,00,000.
 `
