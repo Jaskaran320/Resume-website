@@ -5,6 +5,7 @@ import {
   ChatPromptTemplate,
   MessagesPlaceholder,
 } from "@langchain/core/prompts";
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { useState, useEffect, useRef } from "react";
@@ -267,6 +268,7 @@ export default function Chat() {
           excuse any mistakes 😀.
         </div>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
