@@ -2,10 +2,10 @@ export const resume_data =
 `Jaskaran Singh
 +91-8470918660 ⋄ Delhi, India
 
-Jaskaran Singh's EMAIL: jaskaransingh.official7@gmail.com 
+Jaskaran Singh's Email: jaskaransingh.official7@gmail.com 
 Jaskaran Singh's LinkedIn: https://www.linkedin.com/in/jaskaran-singh7 
 Jaskaran Singh's GitHub: https://github.com/jaskaran320 
-Jaskaran Singh's Portfolio: https://jaskaransingh.vercel.app
+Jaskaran Singh's Portfolio: https://jsingh.vercel.app/
 
 EDUCATION
 
@@ -19,7 +19,7 @@ CGPA: 8.39/10
 Class XII
 Montfort School Delhi
 From: 2018 - 2020
-Percentage: 95.6%
+Percentage: 95%
 
 WORK EXPERIENCE
 
