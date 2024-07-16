@@ -10,7 +10,8 @@ const links = [
   },
   {
     name: "view-resume",
-    path: "https://drive.google.com/file/d/1IbehqT2kmUvN--B4LQ8BWiLY92qU9Z5Z/view?usp=sharing",
+    path: "https://drive.google.com/file/d/1Q9IQeLkkypBOMv2CZRnOufBxWIlgcwef/view?usp=sharing",
+    target: "_blank",
   },
 ];
 
@@ -33,7 +34,7 @@ const currentPath = pathname.slice(0);
           links.map((link) => (
             <li>
               <div class = ` text-text transition-all duration-50 ${currentPath == link.path? "font-semibold text-primary":"font-light hover:underline underline-offset-2 "}`>
-                <a href={link.path}>{link.name}</a>
+                <a href={link.path} target={link.target}>{link.name}</a>
               </div>
             </li>
           ))

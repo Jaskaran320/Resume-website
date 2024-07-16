@@ -30,7 +30,7 @@ Role: DevOps Intern
 From: May 2023 - July 2023
 • Orchestrated the migration of Java and Angular services from x86-based AWS instances to ARM-based Graviton2
 instances.
-• Accelerated build times by 50% through parallelization and module caching.
+• Accelerated build times by 50% through parallelization and module caching and reduced costs by 40%.
 • Engineered a comprehensive end-to-end pipeline allowing developers to migrate services in under 1 hour.
 
 GrowIndigo 

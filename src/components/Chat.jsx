@@ -37,9 +37,9 @@ export default function Chat() {
     If the answer is not in the context, say the word “Unknown".`;
 
   const messageRecommendations = [
-    "Where is he working?",
-    "How do I contact him?",
     "What is his tech stack?",
+    "What projects did he work on?",
+    "How do I contact him?",
   ];
 
   const prompt = ChatPromptTemplate.fromMessages([
