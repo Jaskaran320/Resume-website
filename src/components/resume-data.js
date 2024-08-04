@@ -9,11 +9,10 @@ Jaskaran Singh's Portfolio: https://jsingh.vercel.app/
 
 EDUCATION
 
-Bachelor of Technology
+Bachelor of Technology (B.Tech)
 Indraprastha Institute of Information Technology - Delhi (IIIT-D)
-From: Nov 2020 - May 2024
+From: Aug 2020 - June 2024
 Major: Computer Science & Applied Mathematics
-Expected 2024
 CGPA: 8.39/10
 
 Class XII
