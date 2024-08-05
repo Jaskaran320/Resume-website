@@ -55,7 +55,9 @@ export function Projects() {
               className="w-full select-none"
             >
               <a href={item.link}>
-                <div className="bg-orange-100 flex flex-col justify-center rounded-xl h-48 md:h-40 antialiased text-left space-y-1 font-poppins hover:cursor-pointer">
+                <div
+                style={{backgroundColor: '#D4D0C4'}} 
+                  className="bg-orange-100 flex flex-col justify-center rounded-xl h-48 md:h-40 antialiased text-left space-y-1 font-poppins hover:cursor-pointer">
                   <h1 className="font-bold text-xl md:text-2xl ">
                     {item.name}
                   </h1>
@@ -92,7 +94,8 @@ export function Projects() {
         {text.map((item) => (
           <SwiperSlide key={item.name + item.date} className="w-full">
             <a href={item.link}>
-              <div className=" bg-orange-100 flex flex-col justify-center items-start rounded-xl antialiased text-left space-y-1 font-poppins hover:cursor-pointer p-4 tracking-wide h-56 md:h-40">
+              <div style={{backgroundColor: '#EDE4D4'}}
+              className=" flex flex-col justify-center items-start rounded-xl antialiased text-left space-y-1 font-poppins hover:cursor-pointer p-4 tracking-wide h-56 md:h-40">
                 <h1 className="font-bold w-full text-xl md:text-2xl flex items-start justify-between">
                   <div>{item.name}</div>
                   <div className = "hidden md:flex text-xs md:text-xs text-text opacity-75 items-center justify-around"><img src = {infoicon.src} className="w-3 h-3 mx-2"/>Click to visit</div>
