@@ -6,10 +6,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#faf2df",
-        slider: "#FFF3D7",
-        primary: "#3b3048",
-        text: "#5c5f7a",
+        background: "#E2D4BA",
+        slider: "#D4D0C4",
+        primary: "#653239",
+        text: "#9E6557",
+        accent: "#27187E",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

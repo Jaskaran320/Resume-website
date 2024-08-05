@@ -22,6 +22,16 @@ Percentage: 95%
 
 WORK EXPERIENCE
 
+Undergraduate Researcher 
+Location: IIIT Delhi
+Title: Harmonizing FAIR datasets 
+From: Aug 2023 - June 2024
+• Conducted a comprehensive study on the FAIRness (Findable, Accessible, Interoperable, Reusable) of COVID-19
+datasets, focusing on data interoperability and standardization.
+• Developed an automated system for assessing similarity between datasets using semantic, structural, and
+distributional measures.
+• Contributed to development of pipeline facilitating research endeavors requiring high-quality, interoperable data.
+
 myKaarma 
 Skills Used: Docker, Kubernetes, Jenkins, Graylog, Java, YAML 
 Location: Noida, India
@@ -29,7 +39,7 @@ Role: DevOps Intern
 From: May 2023 - July 2023
 • Orchestrated the migration of Java and Angular services from x86-based AWS instances to ARM-based Graviton2
 instances.
-• Accelerated build times by 50% through parallelization and module caching and reduced costs by 40%.
+• Accelerated build times by 50% through parallelization and module caching, and reduced costs by 40%.
 • Engineered a comprehensive end-to-end pipeline allowing developers to migrate services in under 1 hour.
 
 GrowIndigo 
@@ -41,16 +51,6 @@ From: May 2022 - July 2022
 testing and deployment.
 • Implemented a comprehensive Appium testing framework, increasing test coverage by 40%.
 
-Undergraduate Researcher 
-Location: IIIT Delhi
-Title: Harmonizing FAIR datasets 
-From: Aug 2023 - June 2024
-• Conducted a comprehensive study on the FAIRness (Findable, Accessible, Interoperable, Reusable) of COVID-19
-datasets, focusing on data interoperability and standardization.
-• Developed an automated system for assessing similarity between datasets using semantic, structural, and distributional
-measures.
-• Contributed to the development of a pipeline facilitating research endeavors requiring high-quality, interoperable data.
-
 Teaching Assistant
 Course: Advanced Programming
 From: Aug 2023 - Dec 2023
@@ -60,20 +60,25 @@ Programming, Exception Handling, JUnit Testing, Multithreading, and Design Patte
 
 TECHNICAL SKILLS
 
-Expertise Area: Deep Learning, Natural Language Processing, Web Development, Data Structures, Algorithms, Object-Oriented
-Programming
-Programming Languages: Python, Java, Javascript, C, C++, SQL, HTML, YAML
-Technologies/Frameworks: Docker, Kubernetes, Pytorch, Hugging Face, LangChain, React, Prometheus, Jenkins, Graylog, Maven,
-Scikit-Learn, Git, MySQL, Linux
+Languages: Python, Javascript, C, C++, Java, R, SQL, HTML, YAML
+ML/Data Science: Pytorch, Tensorflow, Hugging Face, Transformers, OpenCV, Scikit-Learn
+Infra/Ops: Docker, Kubernetes, Jenkins, Graylog, Prometheus, Matlab, Maven, Git, Linux, AWS, GCP
+Web/Database: React, MySQL, Streamlit
 
 PROJECTS
 
-Hindi Text Summarization 
-Skills Used: Python, Pytorch, HuggingFace, NLP 
+Deep Learning on Noisy Financial Data 
+Skills Used: Python, Pytorch, Deep Learning
 From: Feb 2024 - April 2024
-• Engineered a custom model to generate a meaningful fixed-length summary for news articles in Hindi.
-• Fine-tuned the model on the SemEval dataset, outperforming the leaderboard on BERT and ROUGE scores.
-• Utilized the HuggingFace transformers library and Pytorch to create the models.
+• Engineered GRU, TabPFN, and MLP cascade models with SubTab and NAL for robust financial trend prediction.
+• Applied online continual learning and test-time training, improving generalization on streaming data.
+• Used ensemble methods to achieve high accuracy on high-noise financial datasets.
+
+Raft Implementation
+Skills Used: Python, gRPC, Distributed Systems
+• Implemented a distributed consensus algorithm using Raft protocol, including leader election and log replication.
+• Integrated leader lease optimization to enhance performance of read-only queries in the distributed environment.
+• Developed both local and cloud-deployable versions.
 
 Network on Chip Simulator
 Skills Used: Python, Gem5
@@ -100,15 +105,15 @@ Heart Disease Prediction Model
 Skills Used: Python, Scikit-Learn, Machine Learning
 From: Sep 2022 - Dec 2022
 • Created a Machine Learning Model to predict Heart Diseases in patients, given their medical data.
-• Used techniques like Regression, Naive Bayes, Decision Trees, Random Forests, SVMs, Boosting, and Neural Networks.
+• Used techniques like Naive Bayes, Decision Trees, Random Forests, SVMs, Boosting, and Neural Networks.
 • Achieved an accuracy of 93% using Boosting Techniques on Random Forests.
 
 Bigger Bazaar 
 Skills Used: NodeJS, Express, React, JavaScript, HTML, MySQL 
 From: Jan 2022 - Apr 2022
 • Created an Online Retail Store with various features, including cart, delivery, and payment pages.
+• Integrated Node.js and Express.js for backend operations, with React and HTML/CSS for frontend development.
 • Deployed the website and database on Azure Cloud.
-• Integrated Node.js and Express for backend operations, coupled with HTML/CSS and React for frontend development.
 
 POSITIONS OF RESPONSIBILITY / ACHIEVEMENTS
 • Organized tournaments for 65th Square Chess Club as Events Head with 200+ participants.
