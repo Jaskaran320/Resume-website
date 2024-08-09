@@ -25,7 +25,7 @@ WORK EXPERIENCE
 Undergraduate Researcher 
 Location: IIIT Delhi
 Title: Harmonizing FAIR datasets 
-From: Aug 2023 - June 2024
+From: July 2023 - June 2024
 • Conducted a comprehensive study on the FAIRness (Findable, Accessible, Interoperable, Reusable) of COVID-19
 datasets, focusing on data interoperability and standardization.
 • Developed an automated system for assessing similarity between datasets using semantic, structural, and
