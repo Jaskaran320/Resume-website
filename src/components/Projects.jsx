@@ -94,7 +94,7 @@ export function Projects() {
         {text.map((item) => (
           <SwiperSlide key={item.name + item.date} className="w-full">
             <a href={item.link}>
-              <div style={{backgroundColor: '#EDE4D4'}}
+              <div style={{backgroundColor: '#D1D6F0'}}
               className=" flex flex-col justify-center items-start rounded-xl antialiased text-left space-y-1 font-poppins hover:cursor-pointer p-4 tracking-wide h-56 md:h-40">
                 <h1 className="font-bold w-full text-xl md:text-2xl flex items-start justify-between">
                   <div>{item.name}</div>

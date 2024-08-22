@@ -1,14 +1,15 @@
 import { color } from "framer-motion";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
 function TextBubble({ markdown, type }) {
   const colorUser = {
-      backgroundColor: '#D4D0C4',
-      color: '#9E6557',
+      backgroundColor: '#D6E5E3',
+      color: "#424874",
   };
   const colorBot = {
-      backgroundColor: '#D4D0C4',
-      color: '#AE5B66',
+      backgroundColor: '#DCE0E4',
+      color: "#424874",
   };
   return type == "user" ? (
     <div style={colorUser} 

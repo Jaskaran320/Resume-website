@@ -195,7 +195,7 @@ export default function Chat() {
       <div className="chat space-y-2 flex flex-col justify-center items-center font-poppins text-base antialiased drop-shadow-xl my-6 md:my-8">
         <div
           ref={chatContainerRef}
-          className="flex flex-col z-10 bg-orange-200/5 h-[60vh] w-[90vw] md:h-[63vh] md:w-[60vw] border border-black border-opacity-[0.3] px-2 py-4 overflow-auto rounded-lg smooth-scroll"
+          className="flex flex-col z-10 bg-blue-200/5 h-[60vh] w-[90vw] md:h-[63vh] md:w-[60vw] border border-black border-opacity-[0.3] px-2 py-4 overflow-auto rounded-lg smooth-scroll"
         >
           {chatHistory.map((textitem, index) =>
             textitem.type === "user" ? (
@@ -228,7 +228,7 @@ export default function Chat() {
             {messageRecommendations.map((message) => {
               return (
                 <div
-                  style={{backgroundColor: '#D4D0C4'}}
+                  style={{backgroundColor: '#D1D6F0'}}
                   className=" text-xs text-center px-1 md:px-1 bg-opacity-40 content-center text-text rounded-2xl hover:cursor-pointer hover:bg-opacity-80 hover:text-black transition-all duration-200 h-16 w-[28%] md:h-12 md:w-[33%]"
                   onClick={() => {
                     console.log(enablePrompt);
