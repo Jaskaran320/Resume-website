@@ -32,24 +32,39 @@ const techstack = [
     link: "https://www.python.org",
   },
   {
-    name: "React",
-    link: "https://react.dev",
+    name: "JavaScript",
+    link: "https://www.javascript.com",
   },
   {
     name: "MySQL",
     link: "https://www.mysql.com",
   },
+  {
+    name: "React",
+    link: "https://react.dev",
+  },
+  {
+    name: "SolidJS",
+    link: "https://www.solidjs.com",
+  },
+  {
+    name: "Flask",
+    link: "https://flask.palletsprojects.com",
+  },
   
 ];
-import pytorchlogo from "../images/pytorch-icon.svg";
-import tensorflowlogo from "../images/tensorflow-icon.svg";
+import pytorchlogo from "../images/pytorch-logo.svg";
+import tensorflowlogo from "../images/tensorflow-logo.svg";
 import hflogo from "../images/hf-logo.svg";
 import dockerlogo from "../images/docker-logo.svg";
 import k8slogo from "../images/k8s-logo.svg";
 import jenkinslogo from "../images/jenkins-logo.svg";
 import mysqllogo from "../images/mysql-logo.svg";
 import pythonlogo from "../images/python-logo.svg";
-import reactlogo from "../images/react-2.svg";
+import reactlogo from "../images/reactjs-logo.svg";
+import solidlogo from "../images/solidjs-logo.svg";
+import javascriptlogo from "../images/javascript-logo.svg";
+import flasklogo from "../images/flask-logo.svg";
 import whatsapplogo from "../images/whatsapp-logo.svg";
 import linkedinlogo from "../images/linkedin-logo.svg";
 import githublogo from "../images/github-logo.svg";
@@ -86,8 +101,11 @@ let images = [
   k8slogo,
   jenkinslogo,
   pythonlogo,
-  reactlogo,
+  javascriptlogo,
   mysqllogo,
+  reactlogo,
+  solidlogo,
+  flasklogo,
 ];
 ---
 
@@ -112,7 +130,7 @@ let images = [
       <p class="text-sm md:text-xl font-poppins font-medium my-6">
         My tech stack:
       </p>
-      <div class="grid grid-rows-3 grid-cols-3 gap-x-4 gap-y-2 md:w-fit">
+      <div class="grid grid-rows-4 grid-cols-3 gap-x-4 gap-y-2 md:w-fit">
         {
           techstack.map((tech, ind) => (
             <Tooltip srce={images[ind]} name={tech.name} link={tech.link} />

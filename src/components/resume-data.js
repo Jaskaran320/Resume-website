@@ -66,7 +66,7 @@ PROJECTS
 Portfolio
 Skills Used: React.js, Astro, Javascript, LangChain
 • Created a website to showcase my proficiency in web development.
-• Built a resume AI bot using LangChain and Llama 3.1 to interact with users based on my resume data.
+• Built a resume AI bot using LangChain and Gemini 1.5 to interact with users based on my resume data.
 • Designed a fully responsive layout for a seamless experience across all devices.
 
 LookFast
