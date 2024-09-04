@@ -1,5 +1,5 @@
 import TextBubble from "./TextBubble.jsx";
-import { ChatGroq } from "@langchain/groq";
+import { ChatGoogleGenerativeAI  } from "@langchain/google-genai";
 import { HumanMessage, AIMessage } from "@langchain/core/messages";
 import {
   ChatPromptTemplate,
@@ -48,9 +48,10 @@ export default function Chat() {
     ["human", "{input}"],
   ]);
 
-  const model = new ChatGroq({
-    model: "llama-3.1-8b-instant",
-    apiKey: `${process.env.GROQ_API_KEY}`,
+  const model = new ChatGoogleGenerativeAI({
+    model: "gemini-1.5-flash",
+    temperature: 1,
+    // apiKey: `${process.env.GROQ_API_KEY}`,
   });
 
   const chain = RunnableSequence.from([
