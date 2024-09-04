@@ -68,12 +68,14 @@ Skills Used: React.js, Astro, Javascript, LangChain
 • Created a website to showcase my proficiency in web development.
 • Built a resume AI bot using LangChain and Gemini 1.5 to interact with users based on my resume data.
 • Designed a fully responsive layout for a seamless experience across all devices.
+Link to portfolio: https://jsingh.vercel.app/
 
 LookFast
 Skills Used: Solid.js, Flask, Javascript, Python, SCSS, Nginx 
 • Built a platform for hosting Computer Vision models, providing user-friendly AI access.
 • Configured Nginx with SSL to securely route requests to the backend server.
 • Implemented efficient API endpoints in Flask to handle model inference and user interaction.
+Link to project: https://lookfast.vercel.app/
 
 Deep Learning on Noisy Financial Data 
 Skills Used: Python, Pytorch, Deep Learning
