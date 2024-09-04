@@ -51,7 +51,7 @@ export default function Chat() {
   const model = new ChatGoogleGenerativeAI({
     model: "gemini-1.5-flash",
     temperature: 1,
-    // apiKey: `${process.env.GROQ_API_KEY}`,
+    // apiKey: `${process.env.GEMINI_API_KEY}`,
   });
 
   const chain = RunnableSequence.from([
