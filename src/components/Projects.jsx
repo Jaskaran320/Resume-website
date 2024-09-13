@@ -10,6 +10,10 @@ import infoicon from "../images/info-icon.svg";
 import { useState, useEffect } from "react";
 
 export function Projects() {
+  useEffect(() => {
+    fetch('/api/logRoute')
+  }, []);
+
   const placeholder = [
     {
       name: "Loading...",

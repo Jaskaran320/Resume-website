@@ -1,11 +1,11 @@
 import { getDatabase, ref, set } from "firebase/database";
 import { app } from "../../firebase/client";
 
-const database = getDatabase(app);
+async function Contact(name, email, text) {
 
-function Contact(name, email, text) {
+  const database = getDatabase(app);
   let inputId = name + new Date().getTime();
-  let status = set(ref(database, "users/"+inputId), {
+  await set(ref(database, "users/"+inputId), {
     name: name,
     email: email,
     text: text,
