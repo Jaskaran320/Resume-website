@@ -30,7 +30,7 @@ export const POST = async ({ request }) => {
 
     const ip = forwardedIp.split(',')[0].trim();
     if (!ip) {
-      return new Response(JSON.stringify({ message: "required" }), {
+      return new Response(null, {
         status: 400,
         headers: {
           "Content-Type": "application/json"
@@ -48,7 +48,7 @@ export const POST = async ({ request }) => {
 
     await log(ip, browserName, trimmedPlatform);
 
-    return new Response(JSON.stringify({ message: "" }), {
+    return new Response(null, {
       status: 200,
       headers: {
         "Content-Type": "application/json"
