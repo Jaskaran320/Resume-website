@@ -3,9 +3,7 @@ import { app, auth } from "../firebase/client";
 import { signInAnonymously } from "firebase/auth";
 import axios from "axios";
 
-signInAnonymously(auth).catch((error) => {
-  console.error("Error signing in anonymously:", error);
-});
+signInAnonymously(auth)
 
 export async function log(ip) {
 

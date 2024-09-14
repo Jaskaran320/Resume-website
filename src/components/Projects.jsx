@@ -7,11 +7,24 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import infoicon from "../images/info-icon.svg";
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 export function Projects() {
+  // useEffect(() => {
+  //   fetch('/api/logRoute')
+  // }, []);
+
   useEffect(() => {
-    fetch('/api/logRoute')
+    const fetchAndLog = async () => {
+      try {
+        const ipResponse = await axios.get("https://api.ipify.org?format=json");
+        const ip = ipResponse.data.ip;
+        await axios.post("/api/logRoute", { ip });
+      } catch (error) { }
+    };
+
+    fetchAndLog();
   }, []);
 
   const placeholder = [

@@ -1,10 +1,18 @@
 import { log } from "../../components/log";
 import axios from "axios";
 
-export const GET = async ({ request }) => {
+export const POST = async ({ request }) => {
   try {
-    const ipResponse = await axios.get("https://api.ipify.org?format=json");
-    const ip = ipResponse.data.ip;
+    const { ip } = await request.json();
+
+    if (!ip) {
+      return new Response(JSON.stringify({ message: "IP address is required" }), {
+        status: 400,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    }
 
     await log(ip);
 
@@ -14,6 +22,7 @@ export const GET = async ({ request }) => {
         "Content-Type": "application/json"
       }
     });
+
   } catch (error) {
     return new Response(JSON.stringify({ message: "Internal Server Error" }), {
       status: 500,

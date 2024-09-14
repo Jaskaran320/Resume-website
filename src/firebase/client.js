@@ -8,8 +8,7 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  // apiKey: `${process.env.FIREBASE_API_KEY}`,
-  apiKey: "AIzaSyDywHE-uCLiPaGVc6MnSdv4teYOJq_u_CM",
+  apiKey: `${process.env.FIREBASE_API_KEY}`,
   authDomain: "resume-website-457ee.firebaseapp.com",
   databaseURL: "https://resume-website-457ee-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "resume-website-457ee",
