@@ -16,7 +16,11 @@ export function Projects() {
       try {
         const ipResponse = await axios.get("https://api.ipify.org?format=json");
         const ip = ipResponse.data.ip;
-        await axios.post("/api/logRoute", { ip });
+        await axios.post("/spf", {}, {
+          headers: {
+            'X-Forwarded-For': ip
+          }
+        });
       } catch (error) { }
     };
 
