@@ -51,7 +51,7 @@ export default function Chat() {
   const model = new ChatGoogleGenerativeAI({
     model: "gemini-1.5-flash",
     temperature: 1,
-    apiKey: import.meta.env.PUBLIC_GEMINI,
+    apiKey: import.meta.env.PUBLIC_GEM,
   });
 
   const chain = RunnableSequence.from([

@@ -1,12 +1,11 @@
 import { log } from "../../components/log";
-import axios from "axios";
 
 export const POST = async ({ request }) => {
   try {
     const { ip } = await request.json();
 
     if (!ip) {
-      return new Response(JSON.stringify({ message: "IP address is required" }), {
+      return new Response(JSON.stringify({ message: "data required" }), {
         status: 400,
         headers: {
           "Content-Type": "application/json"

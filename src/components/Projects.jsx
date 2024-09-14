@@ -11,10 +11,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export function Projects() {
-  // useEffect(() => {
-  //   fetch('/api/logRoute')
-  // }, []);
-
   useEffect(() => {
     const fetchAndLog = async () => {
       try {
