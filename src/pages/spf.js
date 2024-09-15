@@ -41,8 +41,10 @@ export const POST = async ({ request }) => {
     let browserName = "Unknown";
     let allBrowserList = [
       "Chrome Android",
+      "Chrome Mobile",
       "Chrome",
       "Opera Android",
+      "Opera Mobile",
       "Opera GX",
       "Opera",
       "Edge",
