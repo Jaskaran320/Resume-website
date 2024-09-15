@@ -38,6 +38,10 @@ export async function log(ip, browser, platform) {
 
   const timeSnapshot = await get(child(ipRef, "timestamps"));
   let timestamps = timeSnapshot.exists() ? timeSnapshot.val() : [];
+  const browserSnapshot = await get(child(ipRef, "browser"));
+  let existingBrowser = browserSnapshot.exists() ? browserSnapshot.val() : [];
+  const platformSnapshot = await get(child(ipRef, "platform"));
+  let existingPlatform = platformSnapshot.exists() ? platformSnapshot.val() : [];
 
   const formattedTimestamp = new Date().toLocaleString("en-IN", {
     timeZone: "Asia/Kolkata",
@@ -60,11 +64,13 @@ export async function log(ip, browser, platform) {
     hour12: false,
   });
   timestamps.push(`${formattedTimestamp} (IST) / ${formattedOriginal} (${timeZone})`);
+  existingBrowser.push(browser);
+  existingPlatform.push(platform);
 
   await set(ref(database, "ips/" + inputId), {
     ip: ip,
-    browser: browser,
-    platform: platform,
+    browser: existingBrowser,
+    platform: existingPlatform,
     timestamps: timestamps,
     location: existingLocation,
     coordinates: {
