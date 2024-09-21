@@ -2,9 +2,9 @@
 <circle cx="110.5" cy="110.5" r="110.5" fill="url(#paint0_linear_278_24)"/>
 <defs>
 <linearGradient id="paint0_linear_278_24" x1="175" y1="28" x2="-3.59084e-06" y2="189" gradientUnits="userSpaceOnUse">
-<stop stop-color="#EED9BA"/>
-<stop offset="0.47" stop-color="#B9978B"/>
-<stop offset="1" stop-color="#3B3048"/>
+<stop stop-color="#B0E0E6"/>
+<stop offset="0.47" stop-color="#4682B4"/>
+<stop offset="1" stop-color="#1E3A8A"/>
 </linearGradient>
 </defs>
 </svg>

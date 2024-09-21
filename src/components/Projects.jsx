@@ -73,7 +73,7 @@ export function Projects() {
             >
               <a href={item.link}>
                 <div
-                style={{backgroundColor: '#D4D0C4'}} 
+                style={{backgroundColor: '#D1D6F0'}} 
                   className="bg-orange-100 flex flex-col justify-center rounded-xl h-48 md:h-40 antialiased text-left space-y-1 font-poppins hover:cursor-pointer">
                   <h1 className="font-bold text-xl md:text-2xl ">
                     {item.name}

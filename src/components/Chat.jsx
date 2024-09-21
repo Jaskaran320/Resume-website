@@ -111,7 +111,7 @@ export default function Chat() {
     }
   };
 
-  const handleClick = async (event) => {
+  const handleClick = async () => {
     if (!queryText.trim()) return;
 
     let newChatHistory = [
@@ -231,7 +231,6 @@ export default function Chat() {
                   style={{backgroundColor: '#D1D6F0'}}
                   className=" text-xs text-center px-1 md:px-1 bg-opacity-40 content-center text-text rounded-2xl hover:cursor-pointer hover:bg-opacity-80 hover:text-black transition-all duration-200 h-16 w-[28%] md:h-12 md:w-[33%]"
                   onClick={() => {
-                    console.log(enablePrompt);
                     if (enablePrompt) handlePrompt(message);
                   }}
                 >
@@ -265,8 +264,7 @@ export default function Chat() {
           </div>
         </div>
         <div className="text-center text-xs md:text-sm text-primary opacity-75 w-3/4">
-          NOTE: This chatbot is powered by Groq Cloud and LangChain. Please
-          excuse any mistakes 😀.
+          NOTE: This chatbot is powered by Google Gemini and LangChain. Please excuse any mistakes 😀.
         </div>
       </div>
     </div>
