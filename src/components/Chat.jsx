@@ -11,15 +11,17 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { resume_data } from "./resume-data.js";
 import arrow from "../images/arrow.svg";
+import square from "../images/square.svg";
 
 export default function Chat() {
-  const TYPING_SPEED = 10;
+  const TYPING_SPEED = 15;
   const [queryText, setQueryText] = useState("");
   const [enablePrompt, setEnablePrompt] = useState(false);
+  const [chatHistory, setChatHistory] = useState([]);
   const [isTyping, setIsTyping] = useState(true);
   const chatContainerRef = useRef(null);
   const inputRef = useRef(null);
-  const [chatHistory, setChatHistory] = useState([]);
+  const abortControllerRef = useRef(null);
 
   const initialGreeting =
     "Hi there! Please ask me any questions about Jaskaran Singh and I will try my best to help you out. 😊";
@@ -31,7 +33,7 @@ export default function Chat() {
     
     Return Markdown format with proper hyperlinks. Bold important information. Give proper spacing and formatting.
     DO NOT answer any questions or perform any task's not related to Jaskaran Singh's Resume.
-    Answer everything that you can with all the information provided as per the questions asked.
+    Answer everything that you can with all the information provided as per the questions asked and provide appropriate spacing.
     If the user talks normally, you can converse normally as well.
     Make sure that your language is professional and grammatically correct.
     Be concise and do not overstate Jaskaran Singh's achievements or acomplishments. Try to be as helpful as possible but do not state any false information.
@@ -71,7 +73,7 @@ export default function Chat() {
     let currentText = "";
 
     const typeCharacter = () => {
-      if (index < reply.length) {
+      if (index < reply.length && !abortControllerRef.current?.signal.aborted) {
         currentText += reply.charAt(index);
 
         setChatHistory((prevHistory) => {
@@ -109,11 +111,22 @@ export default function Chat() {
         { type: "bot", markdown: "" },
       ]);
     }
+
     setIsTyping(true);
+    abortControllerRef.current = new AbortController();
     setTimeout(() => {
       typeCharacter();
       scrollToBottom();
     }, TYPING_SPEED);
+  };
+
+  const scrollToBottom = () => {
+    if (chatContainerRef.current) {
+      const scrollHeight = chatContainerRef.current.scrollHeight;
+      const height = chatContainerRef.current.clientHeight;
+      const maxScrollTop = scrollHeight - height;
+      chatContainerRef.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
   };
 
   useEffect(() => {
@@ -126,8 +139,10 @@ export default function Chat() {
 
   const handlePrompt = async (queryText) => {
     if (isTyping) return;
+
     setEnablePrompt(false);
     setIsTyping(true);
+
     let newChatHistory = [
       ...chatHistory,
       { type: "user", markdown: queryText },
@@ -164,13 +179,15 @@ export default function Chat() {
   const handleClick = async () => {
     if (!queryText.trim() || isTyping) return;
 
+    setQueryText("");
+    setIsTyping(true);
+
     let newChatHistory = [
       ...chatHistory,
       { type: "user", markdown: queryText },
     ];
     setChatHistory(newChatHistory);
     scrollToBottom();
-    setQueryText("");
 
     try {
       const formattedChatHistory = newChatHistory
@@ -192,18 +209,23 @@ export default function Chat() {
 
       simulateTypingEffect(finalResponse);
     } catch (error) {
-      simulateTypingEffect(
-        "I'm sorry, I encountered an error while processing your request."
-      );
+      if (error.name === 'AbortError') {
+        setChatHistory((prevHistory) => [
+          ...prevHistory,
+          { type: "bot", markdown: "Response generation was stopped." },
+        ]);
+        setIsTyping(false);
+      } else {
+        simulateTypingEffect(
+          "I'm sorry, I encountered an error while processing your request."
+        );
+      }
     }
   };
 
-  const scrollToBottom = () => {
-    if (chatContainerRef.current) {
-      const scrollHeight = chatContainerRef.current.scrollHeight;
-      const height = chatContainerRef.current.clientHeight;
-      const maxScrollTop = scrollHeight - height;
-      chatContainerRef.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+  const handleStopGeneration = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
     }
   };
 
@@ -292,17 +314,17 @@ export default function Chat() {
                 setQueryText(e.target.value);
               }}
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
+                if (e.key === "Enter" && !isTyping) {
                   handleClick();
                 }
               }}
             />
-            <button type="button" onClick={handleClick}>
+            <button type="button" onClick={isTyping ? handleStopGeneration : handleClick}>
               <img
-                src={arrow.src}
-                alt="arrow"
+                src={isTyping ? square.src : arrow.src}
+                alt={isTyping ? "Stop" : "Send"}
                 className={`h-6 w-6 rounded-full transition-all duration-200 ${
-                  isTyping ? "opacity-50" : "hover:rotate-[-90deg]"
+                  isTyping ? "" : "hover:rotate-[-90deg]"
                 }`}
               />
             </button>

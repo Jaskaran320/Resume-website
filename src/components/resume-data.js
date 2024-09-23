@@ -38,7 +38,7 @@ From: July 2023 - June 2024
 myKaarma 
 Skills Used: Docker, Kubernetes, Jenkins, Graylog, Java, YAML 
 Location: Noida, India
-Role: DevOps Intern 
+Role: SRE Intern 
 From: May 2023 - July 2023
 • Orchestrated the migration of Java and Angular services from x86-based ec2 to ARM-based Graviton2 instances.
 • Accelerated build times by 50% through parallelization and module caching, and reduced costs by 40%.
