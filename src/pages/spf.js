@@ -1,4 +1,4 @@
-import { log } from "../components/log";
+import { log } from "../components/Functions/log";
 
 function matchBrowserName(secChUa, allBrowserList) {
   function extractQuotedValues(str) {
@@ -55,7 +55,16 @@ export const POST = async ({ request }) => {
     const trimmedPlatform = platform.replace(/"/g, "").trim();
     browserName = matchBrowserName(secCh, allBrowserList);
 
-    await log(ip, browserName, trimmedPlatform);
+    const flag = await log(ip, browserName, trimmedPlatform);
+
+    if (flag) {
+      return new Response( null, {
+        status: 201,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
 
     return new Response( null, {
       status: 200,

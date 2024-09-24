@@ -1,5 +1,5 @@
 import { child, getDatabase, ref, get, set } from "firebase/database";
-import { app, auth } from "../firebase/client";
+import { app, auth } from "../../firebase/client";
 import { signInAnonymously } from "firebase/auth";
 import axios from "axios";
 
@@ -15,15 +15,15 @@ export async function log(ip, browser, platform) {
 
   const locationSnapshot = await get(child(ipRef, "location"));
   let existingLocation = locationSnapshot.exists() ? locationSnapshot.val() : [];
-  let locationString, timeZone, lat, long;
+  let locationString, timeZone, lat, long, city;
   
   try {
     const locationResponse = await axios.get(
       `https://api.ipgeolocation.io/ipgeo?apiKey=${apikey}&ip=${ip}`
     );
-    const city = locationResponse.data.city;
     const country = locationResponse.data.country_name;
     const region = locationResponse.data.state_prov;
+    city = locationResponse.data.city;
     timeZone = locationResponse.data.time_zone.name;
     lat = locationResponse.data.latitude;
     long = locationResponse.data.longitude;
@@ -78,4 +78,8 @@ export async function log(ip, browser, platform) {
       long: long,
     },
   });
+  if (city === import.meta.env.PUBLIC_CITY) {
+    return 1;
+  }
+  return 0;
 }
