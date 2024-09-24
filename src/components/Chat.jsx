@@ -52,7 +52,7 @@ export default function Chat() {
   ]);
 
   const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
+    model: "gemini-1.5-flash-002",
     temperature: 1,
     apiKey: import.meta.env.PUBLIC_GEM,
   });
@@ -133,10 +133,6 @@ export default function Chat() {
     simulateTypingEffect(initialGreeting, true);
   }, []);
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [chatHistory]);
-
   const handlePrompt = async (queryText) => {
     if (isTyping) return;
 
@@ -164,7 +160,7 @@ export default function Chat() {
         chat_history: formattedChatHistory,
       });
       let finalResponse =
-        response === "Unknown"
+        response.trim() === "Unknown"
           ? "I'm sorry, I don't know the answer to that question."
           : response;
 
@@ -233,9 +229,6 @@ export default function Chat() {
     if (chatContainerRef.current) {
       chatContainerRef.current.classList.add("smooth-scroll");
     }
-    const timeoutId = setTimeout(() => {
-      scrollToBottom();
-    }, 100);
 
     const handleKeyPress = (event) => {
       if (event.key === "/" && document.activeElement !== inputRef.current) {
@@ -247,7 +240,6 @@ export default function Chat() {
     document.addEventListener("keydown", handleKeyPress);
 
     return () => {
-      clearTimeout(timeoutId);
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [chatHistory]);

@@ -19,10 +19,10 @@ CGPA: 8.4/10
 TECHNICAL SKILLS
 --------------------------------------------
 
-Languages: Python, C, C++, Javascript, Java, R
-ML/Data Science: Pytorch, Tensorflow, OpenCV, LangChain, Hugging Face, Transformers, Scikit-Learn
+Languages: Python, C++, Javascript, Java
+ML/Data Science: Pytorch, OpenCV, LangChain, Hugging Face, Transformers, Scikit-Learn
 Web/Database: React.js, Solid.js, Flask, Node.js, gRPC, HTML, SCSS, MySQL, MongoDB
-Infra/Ops: Docker, Kubernetes, Jenkins, Nginx, Graylog, Maven, Git, Linux, AWS, GCP 
+Infra/Ops: Docker, Kubernetes, Jenkins, Graylog, Git, Linux, AWS
 
 WORK EXPERIENCE
 --------------------------------------------
