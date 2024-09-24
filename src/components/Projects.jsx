@@ -21,10 +21,9 @@ export function Projects() {
             'X-Forwarded-For': ip
           }
         });
-        console.log(response);
-        if (response.status === 201) {
-          window.location.href = "/alt";
-        }
+        // if (response.status === 201) {
+        //   window.location.href = "/alt";
+        // }
       } catch (error) { }
     };
 
