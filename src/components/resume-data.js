@@ -2,9 +2,9 @@ export const resume_data =
 `Jaskaran Singh
 Delhi, India
 
-Jaskaran Singh's Email: jaskaransingh.official7@gmail.com 
-Jaskaran Singh's LinkedIn: https://www.linkedin.com/in/jaskaran-singh7 
-Jaskaran Singh's GitHub: https://github.com/jaskaran320 
+Jaskaran Singh's Email: jaskaransingh.official7@gmail.com
+Jaskaran Singh's LinkedIn: https://www.linkedin.com/in/jaskaran-singh7
+Jaskaran Singh's GitHub: https://github.com/jaskaran320
 Jaskaran Singh's Portfolio: https://jsingh.vercel.app/
 
 EDUCATION
@@ -21,11 +21,24 @@ TECHNICAL SKILLS
 
 Languages: Python, C++, Javascript, Java
 ML/Data Science: Pytorch, OpenCV, LangChain, Hugging Face, Transformers, Scikit-Learn
-Web/Database: React.js, Solid.js, Flask, Node.js, gRPC, HTML, SCSS, MySQL, MongoDB
+Web/Database: React.js, Solid.js, FastAPI, Pydantic, SQLAlchemy, gRPC, HTML, SCSS, PostgreSQL
 Infra/Ops: Docker, Kubernetes, Jenkins, Graylog, Git, Linux, AWS
 
 WORK EXPERIENCE
 --------------------------------------------
+
+CredHive
+Skills Used: Python, FastAPI, SQLAlchemy, Pydantic, PostgreSQL
+Location: Delhi, India
+Role: Backend Engineer
+From: Oct 2024 - Present
+
+Brane Enterprises
+Skills Used: Python, FastAPI
+Location: Hyderabad, India
+Role: Associate Solutions Leader
+From: July 2024 - Sep 2024
+• Worked on Backend API integration.
 
 Undergraduate Researcher
 Skills Used: Python, Scikit-Learn, Pandas, NumPy
@@ -65,27 +78,28 @@ Portfolio
 Skills Used: React.js, Astro, Javascript, LangChain
 • Designed and implemented a website to demonstrate expertise in web development.
 • Built a resume AI bot using LangChain and Gemini 1.5 to interact with users based on resume data.
-• Crafted a responsive layout for seamless user experience across devices.
 Link to portfolio: https://jsingh.vercel.app/
 
 LookFast
 Skills Used: Solid.js, Flask, Javascript, Python, SCSS, Nginx 
 • Built a platform for hosting the latest AI models, providing user-friendly AI access.
-• Started a blog covering the latest developments in Deep Learning and Computer Vision.
 • Added efficient API endpoints to handle model inference and user interaction.
 Link to project: https://lookfast.vercel.app/
 
 Deep Learning on Noisy Financial Data 
 Skills Used: Python, Pytorch, Deep Learning
 • Engineered sequential and cascade models with SubTab and NAL for robust financial trend prediction.
-• Applied online continual learning and test-time training, improving generalization on streaming data.
-• Used ensemble methods to achieve 80% on high-noise financial datasets.
+• Used ensemble methods and continual learning to achieve 80% on high-noise financial datasets.
 
 Content-Based Image Retrieval 
 Skills Used: Python, Pytorch, Deep Learning 
 • Designed a content-based image retrieval system to suggest images based on artistic style.
-• Integrated CLIP, ResNet-50, and Vision Transformer to improve feature extraction and representation.
-• Applied techniques like tSNE and autoencoders to achieve an accuracy of 85%.
+• Integrated CLIP, ResNet-50, and Vision Transformer and autoencoders to achieve an 85% accuracy.
+
+Credit App
+Skills Used: Python, FastAPI, SQLAlchemy, Pydantic, PostgreSQL, Pytest
+• Implemented an asynchronous backend-only crud application for credit calculation using FastAPI.
+• Integrated object-relation mapping, data validation, authentication, and testing.
 
 Point Cloud Registration 
 Skills Used: Python, Pytorch, Open3D, Computer Vision 
@@ -101,19 +115,16 @@ Network on Chip Simulator
 Skills Used: Python, Gem5
 • Simulated a cycle-accurate, real-time 3x3 NoC mesh containing nine routers.
 • Implemented buffer and crossbar for each router to store and send packets.
-• Added support for XY and YX routing algorithms and simulated both PVA and PVS modes.
 
 Heart Disease Prediction Model
 Skills Used: Python, Scikit-Learn, Machine Learning
 • Created a Machine Learning Model to predict Heart Diseases in patients, given their medical data.
-• Used techniques like Naive Bayes, Decision Trees, SVMs, Boosting, and Neural Networks.
-• Achieved an accuracy of 93% using Boosting Techniques on Random Forests.
+Used techniques like SVMs, Random Forests, Boosting, and Neural Networks to get 93% accuracy.
 
 Bigger Bazaar 
 Skills Used: NodeJS, Express, React, JavaScript, HTML, MySQL 
 • Created an Online Retail Store with features like cart, delivery, and payment.
 • Integrated Node.js and Express.js for backend operations, with React.js and HTML/CSS for frontend.
-• Deployed the website and database on Azure Cloud.
 
 POSITIONS OF RESPONSIBILITY / ACHIEVEMENTS
 • Organized tournaments for 65th Square Chess Club as Events Head with 200+ participants.

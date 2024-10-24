@@ -78,8 +78,4 @@ export async function log(ip, browser, platform) {
       long: long,
     },
   });
-  if (city === import.meta.env.PUBLIC_CITY) {
-    return 1;
-  }
-  return 0;
 }

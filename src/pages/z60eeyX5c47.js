@@ -50,21 +50,25 @@ export const POST = async ({ request }) => {
       "Edge",
       "Brave",
       "Firefox",
+      "Firefox Android",
+      "Safari",
+      "Mobile Safari",
+      "Samsung Internet",
     ];
 
     const trimmedPlatform = platform.replace(/"/g, "").trim();
     browserName = matchBrowserName(secCh, allBrowserList);
 
-    const flag = await log(ip, browserName, trimmedPlatform);
+    await log(ip, browserName, trimmedPlatform);
 
-    if (flag) {
-      return new Response( null, {
-        status: 201,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
+    // if (flag) {
+    //   return new Response( null, {
+    //     status: 201,
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
+    // }
 
     return new Response( null, {
       status: 200,

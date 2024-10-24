@@ -16,14 +16,11 @@ export function Projects() {
       try {
         const ipResponse = await axios.get("https://api.ipify.org?format=json");
         const ip = ipResponse.data.ip;
-        const response = await axios.post("/spf", {}, {
+        await axios.post("/z60eeyX5c47", {}, {
           headers: {
             'X-Forwarded-For': ip
           }
         });
-        // if (response.status === 201) {
-        //   window.location.href = "/alt";
-        // }
       } catch (error) { }
     };
 
