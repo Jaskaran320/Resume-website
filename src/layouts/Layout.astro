@@ -79,5 +79,15 @@ import logo from "../images/logo.svg";
         @apply list-decimal list-inside py-0;
       }
     </style>
+    <script>
+      import { write } from '../components/Functions/clipboard.js';
+      
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.closest('button') || target.closest('a')) {
+          write();
+        }
+      });
+    </script>
   </body>
 </html>

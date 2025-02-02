@@ -14,7 +14,7 @@ import arrow from "../images/arrow.svg";
 import square from "../images/square.svg";
 
 export default function Chat() {
-  const TYPING_SPEED = 15;
+  const TYPING_SPEED = 10;
   const [queryText, setQueryText] = useState("");
   const [enablePrompt, setEnablePrompt] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);

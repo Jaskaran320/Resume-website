@@ -5,12 +5,13 @@ Delhi, India
 Jaskaran Singh's Email: jaskaransingh.official7@gmail.com
 Jaskaran Singh's LinkedIn: https://www.linkedin.com/in/jaskaran-singh7
 Jaskaran Singh's GitHub: https://github.com/jaskaran320
+Jaskaran Singh's Google Scholar: https://scholar.google.com/citations?user=7e2-d74AAAAJ&hl=en/
 Jaskaran Singh's Portfolio: https://jsingh.vercel.app/
 
 EDUCATION
 --------------------------------------------
 
-Bachelor of Technology (B.Tech)
+Bachelor of Technology (B.Tech) Honors
 Indraprastha Institute of Information Technology - Delhi (IIIT-D)
 From: Nov 2020 - June 2024
 Major: Computer Science & Applied Mathematics
@@ -20,9 +21,9 @@ TECHNICAL SKILLS
 --------------------------------------------
 
 Languages: Python, C++, Javascript, Java
-ML/Data Science: Pytorch, OpenCV, LangChain, Hugging Face, Transformers, Scikit-Learn
-Web/Database: React.js, Solid.js, FastAPI, Pydantic, SQLAlchemy, gRPC, HTML, SCSS, PostgreSQL
-Infra/Ops: Docker, Kubernetes, Jenkins, Graylog, Git, Linux, AWS
+ML/Data Science: Pytorch, OpenCV, EasyOCR, LangChain, Hugging Face, Transformers, Scikit-Learn
+Web/Database: FastAPI, React.js, Solid.js, Playwright, Pydantic, SQLAlchemy, PostgreSQL, HTML, SCSS
+Infra/Ops: Docker, Kubernetes, Jenkins, Git, Linux, AWS, DigitalOcean
 
 WORK EXPERIENCE
 --------------------------------------------
@@ -32,6 +33,16 @@ Skills Used: Python, FastAPI, SQLAlchemy, Pydantic, PostgreSQL
 Location: Delhi, India
 Role: Backend Engineer
 From: Oct 2024 - Present
+• Developed and optimized backend APIs using FastAPI and asynchronous SQLAlchemy, improving
+query performance.
+• Built an API service for direct customer usage with authentication and rate limiting, enhancing
+security and reliability.
+• Integrated Juspay for seamless payment processing, and worked with external APIs to fetch and store
+structured data using Pydantic models.
+• Automated large-scale web scraping with Playwright, with captcha solving, and parsed data into
+structured formats for storing in the database.
+• Implemented PDF parsing with pdfplumber to streamline document extraction, reducing manual
+processing time by 90%.
 
 Brane Enterprises
 Skills Used: Python, FastAPI
@@ -40,6 +51,16 @@ Role: Associate Solutions Leader
 From: July 2024 - Sep 2024
 • Worked on Backend API integration.
 
+myKaarma 
+Skills Used: Docker, Kubernetes, Jenkins, Graylog, Java, YAML 
+Location: Noida, India
+Role: SRE Intern 
+From: May 2023 - July 2023
+• Led the migration of Java and Angular services from x86-based ec2 to ARM-based Graviton2, reducing
+infrastructure costs by 40%.
+• Optimized CI/CD pipelines by parallelizing builds and caching modules, cutting build times by 50%.
+• Engineered an end-to-end pipeline allowing developers to migrate services in under 1 hour.
+
 Undergraduate Researcher
 Skills Used: Python, Scikit-Learn, Pandas, NumPy
 Location: IIIT Delhi
@@ -47,14 +68,6 @@ Title: Harmonizing FAIR datasets
 From: July 2023 - June 2024
 • Analyzed the FAIRness of COVID-19 datasets, with emphasis on data interoperability and standardization.
 • Devised an automated system to assess dataset similarity and facilitate research endeavors.
-
-myKaarma 
-Skills Used: Docker, Kubernetes, Jenkins, Graylog, Java, YAML 
-Location: Noida, India
-Role: SRE Intern 
-From: May 2023 - July 2023
-• Orchestrated the migration of Java and Angular services from x86-based ec2 to ARM-based Graviton2 instances.
-• Accelerated build times by 50% through parallelization and module caching, and reduced costs by 40%.
 
 GrowIndigo 
 Skills Used: AWS, GitHub Actions, Appium, Python, Kotlin 
@@ -96,11 +109,6 @@ Skills Used: Python, Pytorch, Deep Learning
 • Designed a content-based image retrieval system to suggest images based on artistic style.
 • Integrated CLIP, ResNet-50, and Vision Transformer and autoencoders to achieve an 85% accuracy.
 
-Credit App
-Skills Used: Python, FastAPI, SQLAlchemy, Pydantic, PostgreSQL, Pytest
-• Implemented an asynchronous backend-only crud application for credit calculation using FastAPI.
-• Integrated object-relation mapping, data validation, authentication, and testing.
-
 Point Cloud Registration 
 Skills Used: Python, Pytorch, Open3D, Computer Vision 
 • Transformed the ModelNet10 mesh dataset into point clouds for analysis.
@@ -111,15 +119,20 @@ Skills Used: Python, gRPC, Distributed Systems
 • Implemented a fault-tolerant key-value store using a modified Raft consensus algorithm.
 • Integrated leader leases to reduce network latency in read operations while ensuring strong consistency.
 
+Heart Disease Prediction Model
+Skills Used: Python, Scikit-Learn, Machine Learning
+• Created a Machine Learning Model to predict Heart Diseases in patients, given their medical data.
+Used techniques like SVMs, Random Forests, Boosting, and Neural Networks to get 93% accuracy.
+
 Network on Chip Simulator
 Skills Used: Python, Gem5
 • Simulated a cycle-accurate, real-time 3x3 NoC mesh containing nine routers.
 • Implemented buffer and crossbar for each router to store and send packets.
 
-Heart Disease Prediction Model
-Skills Used: Python, Scikit-Learn, Machine Learning
-• Created a Machine Learning Model to predict Heart Diseases in patients, given their medical data.
-Used techniques like SVMs, Random Forests, Boosting, and Neural Networks to get 93% accuracy.
+Credit App
+Skills Used: Python, FastAPI, SQLAlchemy, Pydantic, PostgreSQL, Pytest
+• Implemented an asynchronous backend-only crud application for credit calculation using FastAPI.
+• Integrated object-relation mapping, data validation, authentication, and testing.
 
 Bigger Bazaar 
 Skills Used: NodeJS, Express, React, JavaScript, HTML, MySQL 
