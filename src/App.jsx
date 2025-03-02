@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Layout from './components/layout/Layout'
-import ScrollToTop from './components/common/ScrollToTop'
+import Layout from '@/components/layout/Layout'
+import ScrollToTop from '@/components/common/ScrollToTop'
+import MobileWarning from '@/components/common/MobileWarning'
 
 const Home = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
@@ -16,17 +17,20 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <Layout>
-      <ScrollToTop />
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
-      </Suspense>
-    </Layout>
+    <>
+      <MobileWarning />
+      <Layout>
+        <ScrollToTop />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+    </>
   )
 }
 

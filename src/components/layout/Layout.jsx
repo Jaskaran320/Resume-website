@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Sidebar from '../common/Sidebar'
+import Sidebar from '@/components/common/Sidebar'
 import Header from './Header'
 import Footer from './Footer'
 import { useTheme } from '@/contexts/ThemeContext'

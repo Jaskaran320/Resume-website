@@ -6,17 +6,18 @@ export default async function handler(req, res) {
   }
 
   try {
-    const forwardedIp = req.headers.get("X-Forwarded-For");
-    const secCh = req.headers.get("Sec-Ch-Ua");
-    const platform = req.headers.get("Sec-Ch-Ua-Platform");
+    const forwardedIp = req.headers['x-forwarded-for'];
+    const secCh = req.headers['sec-ch-ua'];
+    const platform = req.headers['sec-ch-ua-platform'];
 
-    const ip = forwardedIp.split(",")[0].trim();
-    if (!ip) {
-      return res.status(400).end();
+    if (!forwardedIp) {
+      return res.status(400).json({ error: "Missing IP address" });
     }
 
+    const ip = forwardedIp.split(",")[0].trim();
+    const trimmedPlatform = platform ? platform.replace(/"/g, "").trim() : "Unknown";
+
     let browserName = "Unknown";
-    const trimmedPlatform = platform.replace(/"/g, "").trim();
     let allBrowserList = [
       "Chrome Android",
       "Chrome Mobile",

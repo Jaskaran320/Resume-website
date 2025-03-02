@@ -8,7 +8,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const RESUME_URL = "https://firebasestorage.googleapis.com/v0/b/resume-website-457ee.appspot.com/o/Jaskaran_Resume.pdf?alt=media"
-const CACHE_DURATION_MS = 6 * 3600 * 1000 // 6 hours
+const CACHE_DURATION_MS = 1 * 3600 * 1000 // 1 hour
 const CACHE_KEY_DATA = 'cachedResumeData'
 const CACHE_KEY_TIMESTAMP = 'cachedResumeTimestamp'
 const MIN_ZOOM = 0.6
