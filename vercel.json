@@ -1,0 +1,10 @@
+{
+    "rewrites": [
+      { "source": "/api/:path*", "destination": "/api/:path*" }
+    ],
+    "env": {
+      "VITE_GEM": "@vite_gem",
+      "VITE_FIRE": "@vite_fire",
+      "VITE_GEO": "@vite_geo"
+    }
+  }

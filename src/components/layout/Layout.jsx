@@ -5,19 +5,31 @@ import Footer from './Footer'
 import { useTheme } from '@/contexts/ThemeContext'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
+const SIDEBAR_STATE_KEY = 'sidebarCollapsed'
+
 const Layout = ({ children }) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(isMobile)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    const savedState = localStorage.getItem(SIDEBAR_STATE_KEY)
+    if (isMobile) return true
+    return savedState === null ? true : savedState === 'true'
+  })
   const [isTransitioning, setIsTransitioning] = useState(false)
   const { theme } = useTheme()
   
   useEffect(() => {
-    setSidebarCollapsed(isMobile)
+    if (isMobile && !sidebarCollapsed) {
+      setSidebarCollapsed(true)
+    }
   }, [isMobile])
   
   const toggleSidebar = () => {
     setIsTransitioning(true)
-    setSidebarCollapsed(!sidebarCollapsed)
+    setSidebarCollapsed(prevState => {
+      const newState = !prevState
+      localStorage.setItem(SIDEBAR_STATE_KEY, newState.toString())
+      return newState
+    })
     
     setTimeout(() => {
       setIsTransitioning(false)
