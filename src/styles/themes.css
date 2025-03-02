@@ -1,0 +1,103 @@
+/* Light theme specific overrides */
+.light .card-hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.light .card-hover:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+}
+
+.light .svg-icon {
+  filter: brightness(0) saturate(100%) invert(28%) sepia(19%) saturate(1096%) hue-rotate(202deg) brightness(92%) contrast(87%);
+}
+
+.light ::selection {
+  background-color: hsla(229, 28%, 56%, 0.3);
+  color: hsl(var(--foreground));
+}
+
+.light ::-moz-selection {
+  background-color: hsla(229, 28%, 56%, 0.3);
+  color: hsl(var(--foreground));
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background-color: hsla(216, 20%, 32%, 0.37);
+}
+
+/* Dark theme specific overrides */
+.dark .card-hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 10px 15px rgba(116, 113, 113, 0.616);
+  transform: translateY(-0.25rem);
+}
+
+.dark .svg-icon {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(14%) saturate(436%) hue-rotate(189deg) brightness(100%) contrast(92%);
+}
+
+.dark ::selection {
+  background-color: hsla(229, 70%, 70%, 0.35);
+  color: hsl(0, 0%, 100%);
+}
+
+.dark ::-moz-selection {
+  background-color: hsla(229, 70%, 70%, 0.35);
+  color: hsl(0, 0%, 100%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: hsla(217, 21%, 48%, 0.671);
+}
+
+/* Common styles */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+/* Sidebar animation */
+.opacity-animation {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sidebar {
+  overflow-x: visible;
+  will-change: width;
+  z-index: 50;
+  transition: width 300ms ease-in-out;
+}
+
+/* Prevent content shifting during transitions */
+.sidebar-collapsed .ml-3 {
+  display: none;
+}
+
+/* Prevent x overflow during transitions */
+.content-area, 
+.content-area-sidebar-collapsed {
+  overflow-x: hidden;
+  position: relative;
+  will-change: margin-left;
+  transition: all 300ms ease-in-out;
+}
+
