@@ -4,7 +4,7 @@ import { getAuth, signInAnonymously } from "firebase/auth";
 import axios from "axios";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIRE,
+  apiKey: process.env.VITE_FIRE,
   authDomain: "resume-website-457ee.firebaseapp.com",
   databaseURL: "https://resume-website-457ee-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "resume-website-457ee",
@@ -47,7 +47,7 @@ async function log(ip, browser, platform) {
   let inputId = ip.toString().replace(/\./g, "");
   let ipRef = ref(database, "ips/" + inputId);
 
-  const apikey = import.meta.env.VITE_GEO;
+  const apikey = process.env.VITE_GEO;
 
   const locationSnapshot = await get(child(ipRef, "location"));
   let existingLocation = locationSnapshot.exists() ? locationSnapshot.val() : [];
