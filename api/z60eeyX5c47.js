@@ -1,4 +1,4 @@
-import { log } from "./log";
+import { log } from "./utils/log";
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
