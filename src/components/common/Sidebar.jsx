@@ -54,7 +54,7 @@ const ThemeIcon = ({ theme }) => (
   )
 )
 
-const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitioning }) => {
+const Sidebar = () => {
   const { theme, toggleTheme } = useTheme()
   const [isExpanded, setIsExpanded] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
@@ -62,7 +62,21 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
   const isMobile = useMediaQuery('(max-width: 768px)')
   const [hoverTimeout, setHoverTimeout] = useState(null)
 
+  useEffect(() => {
+    if (isMobile) {
+      setIsExpanded(false)
+      setShowContent(false)
+      setIsTransitioning(false)
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout)
+        setHoverTimeout(null)
+      }
+    }
+  }, [isMobile, hoverTimeout])
+
   const handleMouseEnter = () => {
+    if (isMobile) return
+
     if (hoverTimeout) {
       clearTimeout(hoverTimeout)
       setHoverTimeout(null)
@@ -80,6 +94,8 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
   }
 
   const handleMouseLeave = () => {
+    if (isMobile) return
+
     if (isExpanded) {
       const timeout = setTimeout(() => {
         setIsTransitioning(true)
@@ -138,7 +154,7 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
                     }`
                   }
                 >
-                  <span className={`flex-shrink-0 ${!isExpanded ? 'tooltip' : ''}`}>
+                  <span className="flex-shrink-0">
                     {item.icon}
                   </span>
                   {showContent && (
@@ -159,7 +175,7 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
                 className="w-full flex items-center p-2 rounded-md hover:bg-secondary transition-colors"
                 aria-label="Toggle theme"
               >
-                <span className={`flex-shrink-0 ${!isExpanded ? 'tooltip' : ''}`} data-tooltip="Change Theme">
+                <span className="flex-shrink-0">
                   <ThemeIcon theme={theme} />
                 </span>
                 {showContent && (
