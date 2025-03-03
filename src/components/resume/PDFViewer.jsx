@@ -13,11 +13,11 @@ const CACHE_KEY_DATA = 'cachedResumeData'
 const CACHE_KEY_TIMESTAMP = 'cachedResumeTimestamp'
 const MIN_ZOOM = 0.6
 const MAX_ZOOM = 2.0
-const DEFAULT_SCALE = 0.9
+const DESKTOP_SCALE = 0.9
 const FILENAME = 'Jaskaran_Resume.pdf'
 
 const PDFViewer = () => {
-  const [scale, setScale] = useState(DEFAULT_SCALE)
+  const [scale, setScale] = useState(DESKTOP_SCALE)
   const [zoomInput, setZoomInput] = useState("90")
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -67,10 +67,9 @@ const PDFViewer = () => {
     loadPdfData()
   }, [])
 
-  // Memoize the file prop to avoid unnecessary reloads
-  const pdfFile = useMemo(() => {
-    return pdfDataUrl ? { url: pdfDataUrl } : null
-  }, [pdfDataUrl])
+  const pdfFile = useMemo(() => 
+    pdfDataUrl ? { url: pdfDataUrl } : null
+  , [pdfDataUrl])
   
   const handleDocumentLoadSuccess = useCallback(() => {
     setError(null)
@@ -137,7 +136,6 @@ const PDFViewer = () => {
       return
     }
 
-    // Fallback to direct download from URL
     fetch(RESUME_URL)
       .then(response => response.blob())
       .then(blob => {

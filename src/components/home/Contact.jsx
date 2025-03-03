@@ -4,7 +4,7 @@ import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import { Card, CardContent } from "@/components/common/Card";
 import Button from "@/components/common/Button";
 import { staggerContainer, slideUp } from "@/utils/animation";
-import ContactFunc from "@/functions/contact";
+import ContactFunc from "@/utils/contact";
 
 import githubIcon from "@/assets/github-logo.svg";
 import linkedinIcon from "@/assets/linkedin-logo.svg";

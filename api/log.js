@@ -1,7 +1,21 @@
-import { child, getDatabase, ref, get, set } from "firebase/database";
-import { app, auth } from "@/firebase/client";
-import { signInAnonymously } from "firebase/auth";
+import { getDatabase, ref, get, set, child } from "firebase/database";
+import { initializeApp } from "firebase/app";
+import { getAuth, signInAnonymously } from "firebase/auth";
 import axios from "axios";
+
+const firebaseConfig = {
+  apiKey: process.env.VITE_FIRE,
+  authDomain: "resume-website-457ee.firebaseapp.com",
+  databaseURL: "https://resume-website-457ee-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "resume-website-457ee",
+  storageBucket: "resume-website-457ee.appspot.com",
+  messagingSenderId: "91412892308",
+  appId: "1:91412892308:web:1b60ae6fd77c8cd1510281",
+  measurementId: "G-081FR0B9B4"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 signInAnonymously(auth)
 

@@ -56,7 +56,7 @@ const Header = () => {
         <div className="flex items-center">
           <h1 className="text-xl md:text-2xl font-bold ml-3 md:ml-0">{pageTitle}</h1>
         </div>
-        <div className="flex space-x-8 pr-8">
+        <div className={`flex ${isMobile ? "space-x-6 pr-4" : "space-x-8 pr-8"}`}>
           {SOCIAL_LINKS.map(link => (
             <a 
               key={link.name}

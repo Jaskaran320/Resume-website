@@ -4,8 +4,10 @@ import { useResumeBot } from '@/contexts/ResumeBotContext'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getResumeBotResponse } from '@/services/resumeBot'
+import useMediaQuery from '@/hooks/useMediaQuery'
 
 const ResumeBot = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)')
   const [message, setMessage] = useState('')
   const { messages, sendMessage, clearMessages } = useResumeBot()
   const chatContainerRef = useRef(null)
@@ -97,6 +99,8 @@ const ResumeBot = () => {
   }
 
   useEffect(() => {
+    if (isMobile) return
+
     if (chatContainerRef.current) {
       chatContainerRef.current.classList.add('smooth-scroll')
     }
@@ -200,12 +204,12 @@ const ResumeBot = () => {
         <div className="flex space-x-2">
           <input
             type="text"
-            onFocus={() => setPlaceholder(placeholder_after_focus)}
-            onBlur={() => setPlaceholder(placeholder_before_focus)}
+            onFocus={() => isMobile ? null : setPlaceholder(placeholder_after_focus)}
+            onBlur={() => isMobile ? null : setPlaceholder(placeholder_before_focus)}
             ref={inputRef}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder={placeholder}
+            placeholder={isMobile ? placeholder_after_focus : placeholder}
             className="flex-1 p-2 border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary"
             disabled={isStreaming}
           />

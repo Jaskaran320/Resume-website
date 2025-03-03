@@ -72,7 +72,7 @@ export const PROJECTS = [
     image: source_code,
     tags: ["Python", "PyTorch", "Scikit-Learn", "Deep Learning"],
     demoLink: "",
-    codeLink: "https://github.com/Jaskaran320/Image-Retrieval",
+    codeLink: "https://github.com/colordepth/image-retrieval",
   },
   {
     id: 8,

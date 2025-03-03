@@ -3,8 +3,10 @@ import PDFViewer from '@/components/resume/PDFViewer'
 import ResumeBot from '@/components/resume/ResumeBot'
 import { ResumeBotProvider } from '@/contexts/ResumeBotContext'
 import { motion } from 'framer-motion'
+import useMediaQuery from '@/hooks/useMediaQuery'
 
 const Resume = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)')
   const [sliderPosition, setSliderPosition] = useState(50)
   const sliderRef = useRef(null)
   const isDraggingRef = useRef(false)
@@ -17,6 +19,8 @@ const Resume = () => {
   const upperWidth = 80
   
   useEffect(() => {
+    if (isMobile) return
+
     const handleMouseMove = (e) => {
       if (!isDraggingRef.current || !containerRef.current) return
       
@@ -26,7 +30,7 @@ const Resume = () => {
       
       let newPosition = (mouseX / containerWidth) * 100
       
-      // Limit to range 20-80 to prevent either pane from disappearing completely
+      // Limit to range to prevent either pane from disappearing completely
       newPosition = Math.max(lowerWidth, Math.min(upperWidth, newPosition))
       
       setSliderPosition(newPosition)
@@ -58,14 +62,37 @@ const Resume = () => {
   const setMiddlePosition = () => setSliderPosition(50) // Equal split
   const setRightPosition = () => setSliderPosition(lowerWidth) // Show mostly chat
 
+  if (isMobile) {
+    return (
+      <ResumeBotProvider>
+        <div className="flex flex-col items-center w-full">
+          <h1 className="text-lg font-bold my-2">
+            Chat with my Resume!
+          </h1>
+          
+          <div className="flex flex-col w-full gap-8 py-2">
+            {/* Resume Panel - Top */}
+            <div className="h-[90vh] w-full overflow-hidden border rounded-lg shadow-sm">
+              <PDFViewer />
+            </div>
+
+            {/* Chat Panel - Bottom */}
+            <div className="h-[70vh] w-full overflow-hidden border rounded-lg shadow-sm">
+              <ResumeBot />
+            </div>
+          </div>
+        </div>
+      </ResumeBotProvider>
+    )
+  }
   
   return (
     <ResumeBotProvider>
       <div className="space-y-4 pt-6 flex flex-col items-center">
         <div className="flex justify-between items-center w-[95vw] relative" style={{ maxWidth: "1500px" }}>
-        <h1 className="text-3xl font-bold absolute left-1/2 transform -translate-x-1/2">
-          Chat with my Resume!
-        </h1>
+          <h1 className="text-3xl font-bold absolute left-1/2 transform -translate-x-1/2">
+            Chat with my Resume!
+          </h1>
           
           <div className="ml-auto flex space-x-2">
             <button 

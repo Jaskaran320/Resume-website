@@ -34,13 +34,6 @@ const BlogIcon = () => (
   </svg>
 )
 
-const ContactIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-    <polyline points="22,6 12,13 2,6"></polyline>
-  </svg>
-)
-
 const ThemeIcon = ({ theme }) => (
   theme === 'dark' ? (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -61,43 +54,46 @@ const ThemeIcon = ({ theme }) => (
   )
 )
 
-const MenuIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-)
-
 const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitioning }) => {
   const { theme, toggleTheme } = useTheme()
+  const [isExpanded, setIsExpanded] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [showContent, setShowContent] = useState(!collapsed)
+  const [showContent, setShowContent] = useState(false)
   const isMobile = useMediaQuery('(max-width: 768px)')
+  const [hoverTimeout, setHoverTimeout] = useState(null)
 
-  useEffect(() => {
-    if (isMobile && !collapsed) {
-      toggleSidebar()
+  const handleMouseEnter = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout)
+      setHoverTimeout(null)
     }
-  }, [isMobile, collapsed, toggleSidebar])
-
-  useEffect(() => {
-    if (collapsed) {
+    
+    if (!isExpanded) {
+      setIsExpanded(true)
       setIsTransitioning(true)
-      setShowContent(false)
-      const timer = setTimeout(() => {
-        setIsTransitioning(false)
-      }, 300)
-      return () => clearTimeout(timer)
-    } else {
-      setIsTransitioning(true)
-      const timer = setTimeout(() => {
+      
+      setTimeout(() => {
         setShowContent(true)
         setIsTransitioning(false)
-      }, 300)
-      return () => clearTimeout(timer)
+      }, 200)
     }
-  }, [collapsed])
+  }
+
+  const handleMouseLeave = () => {
+    if (isExpanded) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(true)
+        setShowContent(false)
+
+        setTimeout(() => {
+          setIsExpanded(false)
+          setIsTransitioning(false)
+        }, 10)
+      }, 200)
+      
+      setHoverTimeout(timeout)
+    }
+  }
   
   const navigationItems = [
     { path: '/', label: 'Home', icon: <HomeIcon />},
@@ -108,9 +104,11 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
   
   return (
     <aside 
-      className={`sidebar ${collapsed ? 'sidebar-collapsed' : 'sidebar-expanded'} ${
+      className={`sidebar-overlay ${isExpanded ? 'sidebar-expanded' : 'sidebar-collapsed'} ${
         isTransitioning ? 'overflow-hidden' : ''
-      }`}
+      } z-20`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="flex flex-col h-full">
         {/* Profile section */}
@@ -140,7 +138,7 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
                     }`
                   }
                 >
-                  <span className={`flex-shrink-0 ${collapsed ? 'tooltip' : ''}`} data-tooltip={item.label}>
+                  <span className={`flex-shrink-0 ${!isExpanded ? 'tooltip' : ''}`}>
                     {item.icon}
                   </span>
                   {showContent && (
@@ -152,8 +150,8 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
           </ul>
         </nav>
         
-        {/* Theme and Toggle options */}
-        <div className="mt-auto">
+        {/* Theme toggle only */}
+        <div className="mt-auto mb-4">
           <ul className="space-y-2 px-2">
             <li>
               <button 
@@ -161,29 +159,11 @@ const Sidebar = ({ collapsed, toggleSidebar, isTransitioning: parentTransitionin
                 className="w-full flex items-center p-2 rounded-md hover:bg-secondary transition-colors"
                 aria-label="Toggle theme"
               >
-                <span className={`flex-shrink-0 ${collapsed ? 'tooltip' : ''}`} data-tooltip="Change Theme">
+                <span className={`flex-shrink-0 ${!isExpanded ? 'tooltip' : ''}`} data-tooltip="Change Theme">
                   <ThemeIcon theme={theme} />
                 </span>
                 {showContent && (
                   <span className="ml-3 opacity-animation">Change Theme</span>
-                )}
-              </button>
-            </li>
-          </ul>
-          <div className="border-t border-border w-full mt-3 mb-3"></div>
-                  
-          <ul className="space-y-2 px-2 mb-2">
-            <li>
-              <button 
-                onClick={toggleSidebar}
-                className="w-full flex items-center p-2 rounded-md hover:bg-secondary transition-colors"
-                aria-label="Toggle sidebar"
-              >
-                <span className={`flex-shrink-0 ${collapsed ? 'tooltip' : ''}`} data-tooltip="Toggle sidebar">
-                  <MenuIcon />
-                </span>
-                {showContent && (
-                  <span className="ml-3 opacity-animation">Toggle sidebar</span>
                 )}
               </button>
             </li>
