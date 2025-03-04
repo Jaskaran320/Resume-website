@@ -30,7 +30,7 @@ export const PROJECTS = [
     description:
       "A platform to showcase latest AI models and tools, providing easy and user-friendly AI access.",
     image: lookfast,
-    tags: ["Solid.js", "Flask", "OpenCV", "RAG"],
+    tags: ["Solid.js", "Flask", "OpenCV", "SCSS"],
     demoLink: "https://lookfast.vercel.app/",
     codeLink: "https://github.com/Jaskaran320/LookFast",
   },
@@ -42,30 +42,10 @@ export const PROJECTS = [
     image: source_code,
     tags: ["Python", "Asyncio", "Pandas"],
     demoLink: "",
-    codeLink: "",
+    codeLink: "https://github.com/Jaskaran320/StockFetch",
   },
   {
     id: 5,
-    title: "Deep Learning on Noisy Financial Data",
-    description:
-      "A research project applying deep learning techniques to analyze and predict financial data trends.",
-    image: source_code,
-    tags: ["Python", "PyTorch", "Deep Learning"],
-    demoLink: "",
-    codeLink: "https://github.com/Jaskaran320/Advanced-Machine-Learning-CSE642-Assignments",
-  },
-  {
-    id: 6,
-    title: "Raft Consensus Algorithm",
-    description:
-      "A fault-tolerant key-value store implementation using a modified Raft consensus algorithm.",
-    image: source_code,
-    tags: ["Python", "gRPC", "Distributed Systems"],
-    demoLink: "",
-    codeLink: "https://github.com/Jaskaran320/Raft-implementation",
-  },
-  {
-    id: 7,
     title: "Content Based Image Retrieval",
     description:
       "A system that suggests images based on artistic style using deep learning techniques.",
@@ -75,7 +55,17 @@ export const PROJECTS = [
     codeLink: "https://github.com/colordepth/image-retrieval",
   },
   {
-    id: 8,
+    id: 6,
+    title: "Deep Learning on Noisy Financial Data",
+    description:
+      "A research project applying deep learning techniques to analyze and predict financial data trends.",
+    image: source_code,
+    tags: ["Python", "PyTorch", "Deep Learning"],
+    demoLink: "",
+    codeLink: "https://github.com/Jaskaran320/Advanced-Machine-Learning-CSE642-Assignments",
+  },
+  {
+    id: 7,
     title: "Point Cloud Registration",
     description:
       "A project that analyzes point clouds using the PointNet framework for classification and segmentation tasks.",
@@ -83,6 +73,16 @@ export const PROJECTS = [
     tags: ["Python", "PyTorch", "Open3D", "Computer Vision"],
     demoLink: "",
     codeLink: "https://github.com/Jaskaran320/Computer-Vision",
+  },
+  {
+    id: 8,
+    title: "Raft Consensus Algorithm",
+    description:
+      "A fault-tolerant key-value store implementation using a modified Raft consensus algorithm.",
+    image: source_code,
+    tags: ["Python", "gRPC", "Distributed Systems"],
+    demoLink: "",
+    codeLink: "https://github.com/Jaskaran320/Raft-implementation",
   },
   {
     id: 9,
